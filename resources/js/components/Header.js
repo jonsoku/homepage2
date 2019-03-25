@@ -3,11 +3,6 @@ import {Link, withRouter} from 'react-router-dom'
 import styled from 'styled-components';
 
 const Container = styled.div`
-    width: 1100px;
-    margin : 0 auto;
-
-    color : var(--black);
-
 `;
 
 const Ul = styled.ul`
@@ -20,6 +15,7 @@ const Li = styled.li`
     transition: all 0.5s;
     /* border-bottom : 5px solid ${props => (props.current ? "var(--blue)" : "transparent")}; */
     transform : scale(${props => (props.current ? "1.3" : "1")});
+    font-weight : ${props => (props.current ? "900" : "inherit")};
 `;
 
 const HeaderLink = styled(Link)`
@@ -27,7 +23,7 @@ const HeaderLink = styled(Link)`
 `;
 
 export default withRouter(({ location : {pathname} }) => (
-    <Container>
+    <Container className="container">
         <Ul>
             <Li current={pathname === "/"}><HeaderLink to="/">Home</HeaderLink></Li>
             <Li current={pathname === "/introduces"}><HeaderLink to="/introduces">Introduce</HeaderLink></Li>

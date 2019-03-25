@@ -171,3 +171,26 @@
     export default globalStyles;
 
     App.js의 <Router />밑에 넣어준다.
+
+
+### Form 유효성 검사 (컨트롤러)
+
+    php artisan make:request NoticeRequest
+    (Notice) <-모델명
+
+    store메소드에서 
+    Request $request => NoticeRequest $request 
+
+    User.php (model)
+
+    //Helpers 추가..
+
+    public function isAdmin()
+    {
+        return $this->id === 1;
+    }
+
+### input 류 value ''추가
+
+    (예시)
+     <TextField id="test" value={this.state.testValue || ''} />
