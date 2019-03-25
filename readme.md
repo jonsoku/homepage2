@@ -6,7 +6,7 @@
 - [ ] Introduce
 - [ ] Notice
 - [ ] Apply
-- [x] Board
+- [ ] Board
 - [ ] Post
 - [ ] Task
 - [ ] Contact
@@ -45,7 +45,7 @@
     npm install && npm run dev
 
     yarn add react-router-dom
-    npm install react-router-dom
+    npm install react-router-dom && axios && styled-components && styled-reset && react-js-pagination && react-player
 
     yarn add axios
     npm install axios
@@ -58,6 +58,8 @@
 
     npm install react-js-pagination
     
+    npm install react-player
+
     php artisan serve
     
     npm run watch
@@ -75,13 +77,46 @@
 
     PS: Still if it is there, kindly check the error it displays in red and act accordingly. This error is specific to node.js environment. Happy Coding!!
 
+### 기타 잡 필요한 것
+        <meta name="csrf-token" content="{{ csrf_token() }}">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+        <link rel="stylesheet" href="{{asset('css/style.css')}}">
+
 ### make auth
     php artisan make:auth
     php artisan migrate
 
 ### view에 넣기
-    <div id="root"></div>
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    <!DOCTYPE html>
+    <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <meta name="csrf-token" content="{{ csrf_token() }}">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+        <link rel="stylesheet" href="{{asset('css/style.css')}}">
+        <title>Document</title>
+    </head>
+    <body>
+        @if (Route::has('login'))
+            <div class="">
+                @auth
+                    <a href="{{ url('/home') }}">Home</a>
+                @else
+                    <a href="{{ route('login') }}">Login</a>
+                    @if (Route::has('register'))
+                        <a href="{{ route('register') }}">Register</a>
+                    @endif
+                @endauth
+            </div>
+        @endif
+        <div id="root"></div>
+        <script src="{{ asset('js/app.js') }}" defer></script>
+    </body>
+    </html>
+
+
 
 ### 폴더 및 파일 생성
     1. components/App.js 
@@ -89,3 +124,50 @@
     3. Route/~~.js
     4. components/Header.js
     5. components/GlobalStyles.js
+
+### php laravel cache refresh
+    php artisan clear-compiled
+    composer dump-autoload
+    php artisan cache:clear
+    php artisan optimize
+
+
+### babel (arrow function)
+    npm install --save-dev babel-preset-stage-1
+    npm install --save-dev babel-preset-env
+    npm install --save-dev babel-plugin-transform-class-properties 
+    npm install --save-dev babel-preset-react   
+
+    ##create .babelrc
+    {
+        "presets": [
+            "@babel/preset-env",
+            "@babel/preset-react"
+        ]
+    }
+
+### 라우트 -> 라우트 방법
+    exact 를 제거한다.
+    <Route path="/introduces" component={Introduce}/>
+    <Route path="/introduces/academy" render={()=> <h1>popular</h1>} />
+
+
+### 글로벌스타일 (reset)
+    import reset from 'styled-reset';
+    import {createGlobalStyle} from 'styled-components';
+
+    const globalStyles = createGlobalStyle`
+        ${reset};
+        a{
+            text-decoration:none;
+            color:inherit;
+        }
+        *{
+            box-sizing:border-box;
+        }
+
+    `;
+
+    export default globalStyles;
+
+    App.js의 <Router />밑에 넣어준다.

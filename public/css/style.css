@@ -1,0 +1,30 @@
+/*################################*/
+
+/* div */
+.login-form{
+    width: 100%;
+}
+
+/*a link*/
+.login-form .login-form-home{
+
+}
+.login-form .login-form-login{
+
+}
+.login-form .login-form-register{
+
+}
+/*################################*/
+
+:root {
+    --background-color: #fff;
+    --black : #566270;
+    --grey : #E0E3DA;
+    --purple : #A593E0;
+    --red : #E53A40;
+    --yellow : #EFDC05;
+    --blue : #30A9DE;
+    --box-shadow : 9px 9px 16px -5px #757575;
+    --taxt-shadow : 2px 2px 2px #969696;
+}
