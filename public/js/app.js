@@ -75588,7 +75588,7 @@ function (_Component) {
                 }).then(this.setState({
                   EditBody: '',
                   editing: false
-                }));
+                }), this._getNotice());
 
               case 3:
                 return _context.abrupt("return", _context.sent);
@@ -75632,27 +75632,27 @@ function (_Component) {
         return console.log(error);
       }).then(this._getNotice());
     }
-    /* 댓글 수정 */
+    /* 댓글 생성 */
 
   }, {
-    key: "handleSubmit2",
+    key: "handleSubmit",
     value: function () {
       var _handleSubmit2 = _asyncToGenerator(
       /*#__PURE__*/
-      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(e, id) {
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(e) {
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
           while (1) {
             switch (_context2.prev = _context2.next) {
               case 0:
                 e.preventDefault();
                 _context2.next = 3;
-                return axios__WEBPACK_IMPORTED_MODULE_2___default.a.put("/notices/".concat(this.state.notice.id, "/noticeComments/").concat(id), {
+                return axios__WEBPACK_IMPORTED_MODULE_2___default.a.post("/notices/".concat(this.state.notice.id, "/noticeComments"), {
                   body: this.state.body
                 }).catch(function (error) {
                   return console.log(error, 'handlesubmit');
                 }).then(this.setState({
                   body: ''
-                }), this._getNotice(), console.log(id));
+                }), this._getNotice());
 
               case 3:
                 return _context2.abrupt("return", _context2.sent);
@@ -75665,56 +75665,8 @@ function (_Component) {
         }, _callee2, this);
       }));
 
-      function handleSubmit2(_x2, _x3) {
+      function handleSubmit(_x2) {
         return _handleSubmit2.apply(this, arguments);
-      }
-
-      return handleSubmit2;
-    }()
-  }, {
-    key: "handleChangeBody2",
-    value: function handleChangeBody2(e) {
-      this.setState({
-        body: e.target.value
-      });
-    }
-    /* 댓글 수정 끝 */
-
-    /* 댓글 생성 */
-
-  }, {
-    key: "handleSubmit",
-    value: function () {
-      var _handleSubmit3 = _asyncToGenerator(
-      /*#__PURE__*/
-      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3(e) {
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
-          while (1) {
-            switch (_context3.prev = _context3.next) {
-              case 0:
-                e.preventDefault();
-                _context3.next = 3;
-                return axios__WEBPACK_IMPORTED_MODULE_2___default.a.post("/notices/".concat(this.state.notice.id, "/noticeComments"), {
-                  body: this.state.body
-                }).catch(function (error) {
-                  return console.log(error, 'handlesubmit');
-                }).then(this.setState({
-                  body: ''
-                }), this._getNotice());
-
-              case 3:
-                return _context3.abrupt("return", _context3.sent);
-
-              case 4:
-              case "end":
-                return _context3.stop();
-            }
-          }
-        }, _callee3, this);
-      }));
-
-      function handleSubmit(_x4) {
-        return _handleSubmit3.apply(this, arguments);
       }
 
       return handleSubmit;
@@ -75745,14 +75697,14 @@ function (_Component) {
     value: function () {
       var _getNotice2 = _asyncToGenerator(
       /*#__PURE__*/
-      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee4() {
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3() {
         var _this2 = this;
 
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee4$(_context4) {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
           while (1) {
-            switch (_context4.prev = _context4.next) {
+            switch (_context3.prev = _context3.next) {
               case 0:
-                _context4.next = 2;
+                _context3.next = 2;
                 return axios__WEBPACK_IMPORTED_MODULE_2___default.a.get("/notices/".concat(this.props.match.params.id)).catch(function (error) {
                   return console.log(error);
                 }).then(function (response) {
@@ -75765,14 +75717,14 @@ function (_Component) {
                 });
 
               case 2:
-                return _context4.abrupt("return", _context4.sent);
+                return _context3.abrupt("return", _context3.sent);
 
               case 3:
               case "end":
-                return _context4.stop();
+                return _context3.stop();
             }
           }
-        }, _callee4, this);
+        }, _callee3, this);
       }));
 
       function _getNotice() {

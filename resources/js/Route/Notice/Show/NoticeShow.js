@@ -39,7 +39,8 @@ export default class NoticeShow extends Component {
             this.setState({
                 EditBody : '',
                 editing : false
-            })
+            }),
+            this._getNotice()
         )
     }
 
@@ -71,29 +72,6 @@ export default class NoticeShow extends Component {
         )
     }
 
-    /* 댓글 수정 */
-    async handleSubmit2(e, id){
-        e.preventDefault();
-        return await Axios.put(`/notices/${this.state.notice.id}/noticeComments/${id}`,{
-            body : this.state.body
-        }).catch(
-            error => console.log(error,'handlesubmit')
-        ).then(
-            this.setState({
-                body : ''
-            }),
-            this._getNotice(),
-            console.log(id)
-        )
-    }
-
-    handleChangeBody2(e){
-        this.setState({
-            body : e.target.value
-        })
-    }
-
-    /* 댓글 수정 끝 */
 
     /* 댓글 생성 */
     async handleSubmit(e){
