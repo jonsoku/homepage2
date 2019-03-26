@@ -73,9 +73,9 @@ class YoutubeCommentController extends Controller
      * @param  \App\YoutubeComment  $youtubeComment
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, YoutubeComment $youtubeComment)
+    public function update(Request $request, Youtube $youtube , YoutubeComment $youtubeComment)
     {
-        //
+        $youtubeComment->update($request->all());
     }
 
     /**
@@ -84,8 +84,8 @@ class YoutubeCommentController extends Controller
      * @param  \App\YoutubeComment  $youtubeComment
      * @return \Illuminate\Http\Response
      */
-    public function destroy(YoutubeComment $youtubeComment)
+    public function destroy(Youtube $youtube, YoutubeComment $youtubeComment)
     {
-        //
+        $youtubeComment->delete();
     }
 }
