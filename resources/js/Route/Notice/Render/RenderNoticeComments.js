@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import FlipMove from 'react-flip-move';
+import Axios from 'axios';
 
 const Ul = styled.ul`
     margin: 1.5rem 0;
@@ -30,20 +32,85 @@ const Li = styled.li`
 `;
 
 class RenderNoticeComments extends Component {
+
+    constructor(){
+        super();
+        this.state = {
+            editing : false,
+            body : '',
+            editId : '',
+        }
+        this.handleEditing = this.handleEditing.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+    }
+
+    async handleSubmit(e){
+        e.preventDefault();
+        return await Axios.put(`${this.props.url}/noticeComments/${this.state.editId}`,{
+            body : this.state.body
+        }).catch(error => console.log(error)).then(
+            this.setState({
+                body : '',
+                editing : false
+            })
+        )
+    }
+
+    handleEditingChange(e){
+        this.setState({
+            body : e.target.value
+        })
+    }
+
+    handleEditing(id){
+        this.setState({
+            editing : true,
+            editId : id
+        })
+    }
+
     render() {
+
+        const viewStyle = { };
+        const editStyle = { };
+
+        if(this.state.editing){
+            viewStyle.display = "none";
+        }else{
+            editStyle.display = "none"
+        }
+
+        console.log(this.props)
         return (
-        <div>
-            {this.props.noticeComments.map((noticeComments, index) => (
-                <Ul key={index}>
-                    <Li>
-                        <span>{noticeComments.user.name}</span>
-                        <small>{noticeComments.created_at}</small>
-                        {noticeComments.user.id === this.props.id ? <button onClick={()=>this.props.onCommentDelete(noticeComments.id)}>X</button> : ''}
-                    </Li>
-                    <Li><p>{noticeComments.body}</p></Li>
-                </Ul>
-            ))}
-        </div>
+            <div>
+                <div>
+                    <form style={editStyle} onSubmit={this.handleSubmit}>
+                        <textarea
+                        onChange={this.handleEditingChange.bind(this)}
+                        value={this.state.body}
+                        />
+                        <button type="submit">수정</button>
+                    </form>
+
+                </div>
+
+                {this.props.noticeComments.map((noticeComment, index) => (
+                    <Ul
+                    key={index}
+                    styled={viewStyle}
+                    onDoubleClick={noticeComment.user_id === this.props.id ? ()=> this.handleEditing(noticeComment.id) : ''}
+                    >
+                        <Li>
+                            <span>{noticeComment.user.name}</span>
+                            <small>{noticeComment.created_at}</small>
+                            {noticeComment.user.id === this.props.id ? <button onClick={()=>this.props.onCommentDelete(noticeComment.id)}>X</button> : ''}
+                        </Li>
+                        <Li>
+                            <p>{noticeComment.body}</p>
+                        </Li>
+                    </Ul>
+                ))}
+            </div>
         )
     }
 }

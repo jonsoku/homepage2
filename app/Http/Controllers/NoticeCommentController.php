@@ -50,7 +50,7 @@ class NoticeCommentController extends Controller
      * @param  \App\NoticeComment  $noticeComment
      * @return \Illuminate\Http\Response
      */
-    public function show(NoticeComment $noticeComment)
+    public function show(Notice $notice, NoticeComment $noticeComment)
     {
         //
     }
@@ -61,30 +61,17 @@ class NoticeCommentController extends Controller
      * @param  \App\NoticeComment  $noticeComment
      * @return \Illuminate\Http\Response
      */
-    public function edit(NoticeComment $noticeComment)
+    public function edit(Notice $notice, NoticeComment $noticeComment)
     {
         //
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\NoticeComment  $noticeComment
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, NoticeComment $noticeComment)
+    public function update(Request $request, Notice $notice, NoticeComment $noticeComment)
     {
-        //
+        $noticeComment->update($request->all());
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\NoticeComment  $noticeComment
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(NoticeComment $noticeComment)
+    public function destroy(Notice $notice, NoticeComment $noticeComment)
     {
         $noticeComment->delete();
     }

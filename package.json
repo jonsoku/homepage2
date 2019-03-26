@@ -30,6 +30,7 @@
         "vue-template-compiler": "^2.6.10"
     },
     "dependencies": {
+        "react-flip-move": "^3.0.3",
         "react-js-pagination": "^3.0.2",
         "react-player": "^1.10.0",
         "react-router-dom": "^5.0.0",

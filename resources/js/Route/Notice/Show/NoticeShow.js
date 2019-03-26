@@ -20,6 +20,9 @@ export default class NoticeShow extends Component {
         this.handleChangeBody = this.handleChangeBody.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleCommentDelete = this.handleCommentDelete.bind(this);
+
+        this.handleSubmit2 = this.handleSubmit2.bind(this);
+        this.handleChangeBody2 = this.handleChangeBody2.bind(this);
     }
 
     handleCommentDelete(id){
@@ -30,7 +33,31 @@ export default class NoticeShow extends Component {
         )
     }
 
+    /* 댓글 수정 */
+    async handleSubmit2(e, id){
+        e.preventDefault();
+        return await Axios.put(`/notices/${this.state.notice.id}/noticeComments/${id}`,{
+            body : this.state.body
+        }).catch(
+            error => console.log(error,'handlesubmit')
+        ).then(
+            this.setState({
+                body : ''
+            }),
+            this._getNotice(),
+            console.log(id)
+        )
+    }
 
+    handleChangeBody2(e){
+        this.setState({
+            body : e.target.value
+        })
+    }
+
+    /* 댓글 수정 끝 */
+
+    /* 댓글 생성 */
     async handleSubmit(e){
         e.preventDefault();
         return await Axios.post(`/notices/${this.state.notice.id}/noticeComments`,{
@@ -51,7 +78,7 @@ export default class NoticeShow extends Component {
             body : e.target.value
         })
     }
-
+    /* 댓글 생성 끝*/
 
 
     handleDelete(id){
@@ -89,11 +116,12 @@ export default class NoticeShow extends Component {
     }
 
     render() {
+        console.log(this.props)
         return (
         <div className="container">
             <RenderNotice notice={this.state.notice} onDelete={this.handleDelete} onEdit={this.handleEdit} id={this.state.user && this.state.user.id}/>
             <RenderNoticeCommentForm commentSubmit={this.handleSubmit} commentChangeBody={this.handleChangeBody} body={this.state.body} id={this.state.user && this.state.user.id}/>
-            <RenderNoticeComments noticeComments={this.state.noticeComments} id={this.state.user && this.state.user.id} onCommentDelete={this.handleCommentDelete}/>
+            <RenderNoticeComments noticeComments={this.state.noticeComments} id={this.state.user && this.state.user.id} onCommentDelete={this.handleCommentDelete} url={this.props.match.url} />
         </div>
         )
     }
