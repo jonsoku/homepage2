@@ -13,7 +13,10 @@ export default class NoticeShow extends Component {
             noticeComments : [],
             user : [],
             loading : true,
-            body : ''
+            body : '',
+            editing : false,
+            EditBody : '',
+            commentId : '',
         }
         this.handleDelete = this.handleDelete.bind(this);
         this.handleEdit = this.handleEdit.bind(this);
@@ -22,8 +25,43 @@ export default class NoticeShow extends Component {
         this.handleCommentDelete = this.handleCommentDelete.bind(this);
 
         this.handleSubmit2 = this.handleSubmit2.bind(this);
-        this.handleChangeBody2 = this.handleChangeBody2.bind(this);
+
+        this.handleEditing = this.handleEditing.bind(this);
+        this.handleEditingChange = this.handleEditingChange.bind(this);
     }
+    //
+
+    async handleSubmit2(e){
+        e.preventDefault();
+        return await Axios.put(`${this.props.match.url}/noticeComments/${this.state.commentId}`,{
+            body : this.state.EditBody
+        }).catch(error => console.log(error)).then(
+            this.setState({
+                EditBody : '',
+                editing : false
+            })
+        )
+    }
+
+
+    handleEditingChange(e){
+        this.setState({
+            EditBody : e.target.value
+        })
+    }
+
+    handleEditing(id){
+        console.log(id,'handleediting')
+        this.setState({
+            editing : true,
+            commentId : id
+        })
+
+        console.log(this.state,'handleediting')
+
+    }
+
+    //
 
     handleCommentDelete(id){
         Axios.delete(`/notices/${this.state.notice.id}/noticeComments/${id}`).catch(
@@ -116,12 +154,32 @@ export default class NoticeShow extends Component {
     }
 
     render() {
-        console.log(this.props)
+        console.log(this.props.match.url,'noticeshow')
         return (
         <div className="container">
-            <RenderNotice notice={this.state.notice} onDelete={this.handleDelete} onEdit={this.handleEdit} id={this.state.user && this.state.user.id}/>
-            <RenderNoticeCommentForm commentSubmit={this.handleSubmit} commentChangeBody={this.handleChangeBody} body={this.state.body} id={this.state.user && this.state.user.id}/>
-            <RenderNoticeComments noticeComments={this.state.noticeComments} id={this.state.user && this.state.user.id} onCommentDelete={this.handleCommentDelete} url={this.props.match.url} />
+            <RenderNotice
+                notice={this.state.notice}
+                onDelete={this.handleDelete}
+                onEdit={this.handleEdit}
+                id={this.state.user && this.state.user.id}
+            />
+            <RenderNoticeCommentForm
+                commentSubmit={this.handleSubmit}
+                commentChangeBody={this.handleChangeBody}
+                body={this.state.body}
+                id={this.state.user && this.state.user.id}
+            />
+            <RenderNoticeComments
+                noticeComments={this.state.noticeComments}
+                id={this.state.user && this.state.user.id}
+                onCommentDelete={this.handleCommentDelete}
+                url={this.props.match.url}
+                editing={this.state.editing}
+                handleEditing={this.handleEditing}
+                handleEditingChange={this.handleEditingChange}
+                EditBody={this.state.EditBody}
+                handleSubmit2={this.handleSubmit2}
+            />
         </div>
         )
     }

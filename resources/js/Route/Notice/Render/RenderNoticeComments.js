@@ -33,61 +33,26 @@ const Li = styled.li`
 
 class RenderNoticeComments extends Component {
 
-    constructor(){
-        super();
-        this.state = {
-            editing : false,
-            body : '',
-            editId : '',
-        }
-        this.handleEditing = this.handleEditing.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
-    }
 
-    async handleSubmit(e){
-        e.preventDefault();
-        return await Axios.put(`${this.props.url}/noticeComments/${this.state.editId}`,{
-            body : this.state.body
-        }).catch(error => console.log(error)).then(
-            this.setState({
-                body : '',
-                editing : false
-            })
-        )
-    }
-
-    handleEditingChange(e){
-        this.setState({
-            body : e.target.value
-        })
-    }
-
-    handleEditing(id){
-        this.setState({
-            editing : true,
-            editId : id
-        })
-    }
 
     render() {
 
         const viewStyle = { };
         const editStyle = { };
 
-        if(this.state.editing){
+        if(this.props.editing){
             viewStyle.display = "none";
         }else{
             editStyle.display = "none"
         }
 
-        console.log(this.props)
         return (
             <div>
                 <div>
-                    <form style={editStyle} onSubmit={this.handleSubmit}>
+                    <form style={editStyle} onSubmit={this.props.handleSubmit2}>
                         <textarea
-                        onChange={this.handleEditingChange.bind(this)}
-                        value={this.state.body}
+                        onChange={this.props.handleEditingChange}
+                        value={this.props.EditBody}
                         />
                         <button type="submit">수정</button>
                     </form>
@@ -98,7 +63,7 @@ class RenderNoticeComments extends Component {
                     <Ul
                     key={index}
                     styled={viewStyle}
-                    onDoubleClick={noticeComment.user_id === this.props.id ? ()=> this.handleEditing(noticeComment.id) : ''}
+                    onDoubleClick={noticeComment.user_id === this.props.id ? ()=> this.props.handleEditing(noticeComment.id) : '' }
                     >
                         <Li>
                             <span>{noticeComment.user.name}</span>

@@ -75197,21 +75197,13 @@ function (_Component) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
-/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
-/* harmony import */ var react_flip_move__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-flip-move */ "./node_modules/react-flip-move/dist/react-flip-move.es.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_4__);
-
-
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
+/* harmony import */ var react_flip_move__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-flip-move */ "./node_modules/react-flip-move/dist/react-flip-move.es.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_3__);
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
-
-function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -75221,9 +75213,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
 function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
@@ -75255,8 +75247,8 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
 
 
 
-var Ul = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].ul(_templateObject());
-var Li = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].li(_templateObject2());
+var Ul = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].ul(_templateObject());
+var Li = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].li(_templateObject2());
 
 var RenderNoticeComments =
 /*#__PURE__*/
@@ -75264,115 +75256,51 @@ function (_Component) {
   _inherits(RenderNoticeComments, _Component);
 
   function RenderNoticeComments() {
-    var _this;
-
     _classCallCheck(this, RenderNoticeComments);
 
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(RenderNoticeComments).call(this));
-    _this.state = {
-      editing: false,
-      body: '',
-      editId: ''
-    };
-    _this.handleEditing = _this.handleEditing.bind(_assertThisInitialized(_this));
-    _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
-    return _this;
+    return _possibleConstructorReturn(this, _getPrototypeOf(RenderNoticeComments).apply(this, arguments));
   }
 
   _createClass(RenderNoticeComments, [{
-    key: "handleSubmit",
-    value: function () {
-      var _handleSubmit = _asyncToGenerator(
-      /*#__PURE__*/
-      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(e) {
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
-          while (1) {
-            switch (_context.prev = _context.next) {
-              case 0:
-                e.preventDefault();
-                _context.next = 3;
-                return axios__WEBPACK_IMPORTED_MODULE_4___default.a.put("".concat(this.props.url, "/noticeComments/").concat(this.state.editId), {
-                  body: this.state.body
-                }).catch(function (error) {
-                  return console.log(error);
-                }).then(this.setState({
-                  body: '',
-                  editing: false
-                }));
-
-              case 3:
-                return _context.abrupt("return", _context.sent);
-
-              case 4:
-              case "end":
-                return _context.stop();
-            }
-          }
-        }, _callee, this);
-      }));
-
-      function handleSubmit(_x) {
-        return _handleSubmit.apply(this, arguments);
-      }
-
-      return handleSubmit;
-    }()
-  }, {
-    key: "handleEditingChange",
-    value: function handleEditingChange(e) {
-      this.setState({
-        body: e.target.value
-      });
-    }
-  }, {
-    key: "handleEditing",
-    value: function handleEditing(id) {
-      this.setState({
-        editing: true,
-        editId: id
-      });
-    }
-  }, {
     key: "render",
     value: function render() {
-      var _this2 = this;
+      var _this = this;
 
       var viewStyle = {};
       var editStyle = {};
 
-      if (this.state.editing) {
+      if (this.props.editing) {
         viewStyle.display = "none";
       } else {
         editStyle.display = "none";
       }
 
-      console.log(this.props);
-      return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("form", {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         style: editStyle,
-        onSubmit: this.handleSubmit
-      }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("textarea", {
-        onChange: this.handleEditingChange.bind(this),
-        value: this.state.body
-      }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("button", {
+        onSubmit: this.props.handleSubmit2
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
+        onChange: this.props.handleEditingChange,
+        value: this.props.EditBody
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         type: "submit"
       }, "\uC218\uC815"))), this.props.noticeComments.map(function (noticeComment, index) {
-        return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(Ul, {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Ul, {
           key: index,
           styled: viewStyle,
-          onDoubleClick: noticeComment.user_id === _this2.props.id ? function () {
-            return _this2.handleEditing(noticeComment.id);
+          onDoubleClick: noticeComment.user_id === _this.props.id ? function () {
+            return _this.props.handleEditing(noticeComment.id);
           } : ''
-        }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(Li, null, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("span", null, noticeComment.user.name), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("small", null, noticeComment.created_at), noticeComment.user.id === _this2.props.id ? react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("button", {
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Li, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, noticeComment.user.name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("small", null, noticeComment.created_at), noticeComment.user.id === _this.props.id ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
           onClick: function onClick() {
-            return _this2.props.onCommentDelete(noticeComment.id);
+            return _this.props.onCommentDelete(noticeComment.id);
           }
-        }, "X") : ''), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(Li, null, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("p", null, noticeComment.body)));
+        }, "X") : ''), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Li, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, noticeComment.body)));
       }));
     }
   }]);
 
   return RenderNoticeComments;
-}(react__WEBPACK_IMPORTED_MODULE_1__["Component"]);
+}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
 
 RenderNoticeComments.defaultProps = {
   id: 0
@@ -75624,7 +75552,10 @@ function (_Component) {
       noticeComments: [],
       user: [],
       loading: true,
-      body: ''
+      body: '',
+      editing: false,
+      EditBody: '',
+      commentId: ''
     };
     _this.handleDelete = _this.handleDelete.bind(_assertThisInitialized(_this));
     _this.handleEdit = _this.handleEdit.bind(_assertThisInitialized(_this));
@@ -75632,38 +75563,32 @@ function (_Component) {
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
     _this.handleCommentDelete = _this.handleCommentDelete.bind(_assertThisInitialized(_this));
     _this.handleSubmit2 = _this.handleSubmit2.bind(_assertThisInitialized(_this));
-    _this.handleChangeBody2 = _this.handleChangeBody2.bind(_assertThisInitialized(_this));
+    _this.handleEditing = _this.handleEditing.bind(_assertThisInitialized(_this));
+    _this.handleEditingChange = _this.handleEditingChange.bind(_assertThisInitialized(_this));
     return _this;
-  }
+  } //
+
 
   _createClass(NoticeShow, [{
-    key: "handleCommentDelete",
-    value: function handleCommentDelete(id) {
-      axios__WEBPACK_IMPORTED_MODULE_2___default.a.delete("/notices/".concat(this.state.notice.id, "/noticeComments/").concat(id)).catch(function (error) {
-        return console.log(error);
-      }).then(this._getNotice());
-    }
-    /* 댓글 수정 */
-
-  }, {
     key: "handleSubmit2",
     value: function () {
       var _handleSubmit = _asyncToGenerator(
       /*#__PURE__*/
-      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(e, id) {
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(e) {
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
                 e.preventDefault();
                 _context.next = 3;
-                return axios__WEBPACK_IMPORTED_MODULE_2___default.a.put("/notices/".concat(this.state.notice.id, "/noticeComments/").concat(id), {
-                  body: this.state.body
+                return axios__WEBPACK_IMPORTED_MODULE_2___default.a.put("".concat(this.props.match.url, "/noticeComments/").concat(this.state.commentId), {
+                  body: this.state.EditBody
                 }).catch(function (error) {
-                  return console.log(error, 'handlesubmit');
+                  return console.log(error);
                 }).then(this.setState({
-                  body: ''
-                }), this._getNotice(), console.log(id));
+                  EditBody: '',
+                  editing: false
+                }));
 
               case 3:
                 return _context.abrupt("return", _context.sent);
@@ -75676,8 +75601,72 @@ function (_Component) {
         }, _callee, this);
       }));
 
-      function handleSubmit2(_x, _x2) {
+      function handleSubmit2(_x) {
         return _handleSubmit.apply(this, arguments);
+      }
+
+      return handleSubmit2;
+    }()
+  }, {
+    key: "handleEditingChange",
+    value: function handleEditingChange(e) {
+      this.setState({
+        EditBody: e.target.value
+      });
+    }
+  }, {
+    key: "handleEditing",
+    value: function handleEditing(id) {
+      console.log(id, 'handleediting');
+      this.setState({
+        editing: true,
+        commentId: id
+      });
+      console.log(this.state, 'handleediting');
+    } //
+
+  }, {
+    key: "handleCommentDelete",
+    value: function handleCommentDelete(id) {
+      axios__WEBPACK_IMPORTED_MODULE_2___default.a.delete("/notices/".concat(this.state.notice.id, "/noticeComments/").concat(id)).catch(function (error) {
+        return console.log(error);
+      }).then(this._getNotice());
+    }
+    /* 댓글 수정 */
+
+  }, {
+    key: "handleSubmit2",
+    value: function () {
+      var _handleSubmit2 = _asyncToGenerator(
+      /*#__PURE__*/
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(e, id) {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                e.preventDefault();
+                _context2.next = 3;
+                return axios__WEBPACK_IMPORTED_MODULE_2___default.a.put("/notices/".concat(this.state.notice.id, "/noticeComments/").concat(id), {
+                  body: this.state.body
+                }).catch(function (error) {
+                  return console.log(error, 'handlesubmit');
+                }).then(this.setState({
+                  body: ''
+                }), this._getNotice(), console.log(id));
+
+              case 3:
+                return _context2.abrupt("return", _context2.sent);
+
+              case 4:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2, this);
+      }));
+
+      function handleSubmit2(_x2, _x3) {
+        return _handleSubmit2.apply(this, arguments);
       }
 
       return handleSubmit2;
@@ -75696,15 +75685,15 @@ function (_Component) {
   }, {
     key: "handleSubmit",
     value: function () {
-      var _handleSubmit2 = _asyncToGenerator(
+      var _handleSubmit3 = _asyncToGenerator(
       /*#__PURE__*/
-      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(e) {
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3(e) {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
           while (1) {
-            switch (_context2.prev = _context2.next) {
+            switch (_context3.prev = _context3.next) {
               case 0:
                 e.preventDefault();
-                _context2.next = 3;
+                _context3.next = 3;
                 return axios__WEBPACK_IMPORTED_MODULE_2___default.a.post("/notices/".concat(this.state.notice.id, "/noticeComments"), {
                   body: this.state.body
                 }).catch(function (error) {
@@ -75714,18 +75703,18 @@ function (_Component) {
                 }), this._getNotice());
 
               case 3:
-                return _context2.abrupt("return", _context2.sent);
+                return _context3.abrupt("return", _context3.sent);
 
               case 4:
               case "end":
-                return _context2.stop();
+                return _context3.stop();
             }
           }
-        }, _callee2, this);
+        }, _callee3, this);
       }));
 
-      function handleSubmit(_x3) {
-        return _handleSubmit2.apply(this, arguments);
+      function handleSubmit(_x4) {
+        return _handleSubmit3.apply(this, arguments);
       }
 
       return handleSubmit;
@@ -75756,14 +75745,14 @@ function (_Component) {
     value: function () {
       var _getNotice2 = _asyncToGenerator(
       /*#__PURE__*/
-      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3() {
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee4() {
         var _this2 = this;
 
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee4$(_context4) {
           while (1) {
-            switch (_context3.prev = _context3.next) {
+            switch (_context4.prev = _context4.next) {
               case 0:
-                _context3.next = 2;
+                _context4.next = 2;
                 return axios__WEBPACK_IMPORTED_MODULE_2___default.a.get("/notices/".concat(this.props.match.params.id)).catch(function (error) {
                   return console.log(error);
                 }).then(function (response) {
@@ -75776,14 +75765,14 @@ function (_Component) {
                 });
 
               case 2:
-                return _context3.abrupt("return", _context3.sent);
+                return _context4.abrupt("return", _context4.sent);
 
               case 3:
               case "end":
-                return _context3.stop();
+                return _context4.stop();
             }
           }
-        }, _callee3, this);
+        }, _callee4, this);
       }));
 
       function _getNotice() {
@@ -75800,7 +75789,7 @@ function (_Component) {
   }, {
     key: "render",
     value: function render() {
-      console.log(this.props);
+      console.log(this.props.match.url, 'noticeshow');
       return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
         className: "container"
       }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_Render_RenderNotice__WEBPACK_IMPORTED_MODULE_3__["default"], {
@@ -75817,7 +75806,12 @@ function (_Component) {
         noticeComments: this.state.noticeComments,
         id: this.state.user && this.state.user.id,
         onCommentDelete: this.handleCommentDelete,
-        url: this.props.match.url
+        url: this.props.match.url,
+        editing: this.state.editing,
+        handleEditing: this.handleEditing,
+        handleEditingChange: this.handleEditingChange,
+        EditBody: this.state.EditBody,
+        handleSubmit2: this.handleSubmit2
       }));
     }
   }]);
