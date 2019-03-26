@@ -28,21 +28,33 @@ const ButtonBox = styled.div`
 `;
 
 
-export default class RenderNoticeCommentForm extends Component {
+class RenderNoticeCommentForm extends Component {
     render() {
         return (
             <div>
-                <Form onSubmit={this.props.commentSubmit}>
-                    <textarea
-                        onChange={this.props.commentChangeBody}
-                        value={this.props.body || ''}
-                        placeholder="댓글을 입력해주세요."
-                    />
-                    <ButtonBox>
-                        <button type="submit">댓글작성</button>
-                    </ButtonBox>
-                </Form>
+                {this.props.id === null
+                ? (
+                    ''
+                )
+                : (
+                    <>
+                    <Form onSubmit={this.props.commentSubmit}>
+                        <textarea
+                            onChange={this.props.commentChangeBody}
+                            value={this.props.body || ''}
+                            placeholder="댓글을 입력해주세요."
+                        />
+                        <ButtonBox>
+                            <button type="submit">댓글작성</button>
+                        </ButtonBox>
+                    </Form>
+                    </>
+                )}
             </div>
         )
     }
 }
+
+
+
+export default RenderNoticeCommentForm;

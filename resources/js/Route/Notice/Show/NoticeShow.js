@@ -19,8 +19,16 @@ export default class NoticeShow extends Component {
         this.handleEdit = this.handleEdit.bind(this);
         this.handleChangeBody = this.handleChangeBody.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleCommentDelete = this.handleCommentDelete.bind(this);
     }
 
+    handleCommentDelete(id){
+        Axios.delete(`/notices/${this.state.notice.id}/noticeComments/${id}`).catch(
+            error => console.log(error)
+        ).then(
+            this._getNotice()
+        )
+    }
 
 
     async handleSubmit(e){
@@ -83,9 +91,9 @@ export default class NoticeShow extends Component {
     render() {
         return (
         <div className="container">
-            <RenderNotice notice={this.state.notice} onDelete={this.handleDelete} onEdit={this.handleEdit}/>
-            <RenderNoticeCommentForm commentSubmit={this.handleSubmit} commentChangeBody={this.handleChangeBody} body={this.state.body}/>
-            <RenderNoticeComments noticeComments={this.state.noticeComments} user={this.state.user}/>
+            <RenderNotice notice={this.state.notice} onDelete={this.handleDelete} onEdit={this.handleEdit} id={this.state.user && this.state.user.id}/>
+            <RenderNoticeCommentForm commentSubmit={this.handleSubmit} commentChangeBody={this.handleChangeBody} body={this.state.body} id={this.state.user && this.state.user.id}/>
+            <RenderNoticeComments noticeComments={this.state.noticeComments} id={this.state.user && this.state.user.id} onCommentDelete={this.handleCommentDelete}/>
         </div>
         )
     }

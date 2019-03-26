@@ -19,7 +19,8 @@
 
 :root {
     --light: #fff;
-    --light2: #F5FBF4;
+    --light2: #f4f4f4;
+    --light3 : #FFFFF3;
     --black : #566270;
     --grey : #E0E3DA;
     --purple : #A593E0;
@@ -35,7 +36,6 @@
     margin : 0 auto;
     color : var(--black);
 }
-
 
 @media (max-width: 1280px) {
     .container{

@@ -93,8 +93,11 @@ const CreateBox = styled.div`
 
 
 
-export default class RenderNotices extends Component {
+class RenderNotices extends Component {
+
+
     render() {
+        console.log(this.props)
         return (
         <div className="container">
             <Table summary="this table is Notice table">
@@ -118,7 +121,7 @@ export default class RenderNotices extends Component {
                     ))}
                 </Tbody>
             </Table>
-            {this.props.user.id === 1
+            {this.props.id === 1
             ? (
                 <CreateBox>
                     <button onClick={()=>this.props.onCreate()}>글 작성</button>
@@ -129,4 +132,11 @@ export default class RenderNotices extends Component {
         )
     }
 }
+
+RenderNotices.defaultProps = {
+    id: 0
+  };
+
+
+export default RenderNotices;
 

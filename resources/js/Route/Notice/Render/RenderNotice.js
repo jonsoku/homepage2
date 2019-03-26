@@ -51,7 +51,7 @@ const ButtonBox = styled.div`
 `;
 
 
-export default class RenderNotice extends Component {
+class RenderNotice extends Component {
     render() {
         return (
             <>
@@ -67,10 +67,23 @@ export default class RenderNotice extends Component {
             </Ul>
             <ButtonBox>
                 <button onClick={()=>location.href="/#/notices"}>뒤로가기</button>
-                <button onClick={()=>this.props.onEdit(this.props.notice.id)}>수정</button>
-                <button onClick={()=>this.props.onDelete(this.props.notice.id)}>삭제</button>
+
+                {this.props.id === 1
+                ? (
+                    <>
+                    <button onClick={()=>this.props.onEdit(this.props.notice.id)}>수정</button>
+                    <button onClick={()=>this.props.onDelete(this.props.notice.id)}>삭제</button>
+                    </>
+                )
+                : ''}
+
             </ButtonBox>
             </>
         )
     }
 }
+RenderNotice.defaultProps = {
+    id: 0
+};
+
+export default RenderNotice;

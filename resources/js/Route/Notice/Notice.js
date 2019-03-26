@@ -40,7 +40,7 @@ export default class Notice extends Component {
         console.log(this.state)
         return (
         <div className="container">
-            <RenderNotices notices={this.state.notices} onCreate={this.handleCreate} user={this.state.user}/>
+            <RenderNotices notices={this.state.notices} onCreate={this.handleCreate} id={this.state.user && this.state.user.id}/>
         </div>
         )
     }

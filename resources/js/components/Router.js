@@ -9,6 +9,8 @@ import Header from './Header';
 import NoticeShow from '../Route/Notice/Show/NoticeShow';
 import NoticeEdit from '../Route/Notice/Edit/NoticeEdit';
 import NoticeCreate from '../Route/Notice/Create/NoticeCreate';
+import YoutubeCreate from '../Route/Youtube/Create/YoutubeCreate';
+import YoutubeShow from '../Route/Youtube/Show/YoutubeShow';
 
 export default () => (
     <Router>
@@ -24,6 +26,8 @@ export default () => (
             <Route path="/notices/:id/edit" exact component={NoticeEdit}/>
             <Route path="/posts" exact component={Post}/>
             <Route path="/youtubes" exact component={Youtube}/>
+            <Route path="/youtubes/create" exact component={YoutubeCreate}/>
+            <Route path="/youtubes/:id" exact component={YoutubeShow}/>
             <Redirect from="*" to="/" />
         </Switch>
         </>

@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\NoticeComment;
+use App\YoutubeComment;
 use Illuminate\Http\Request;
-use App\Notice;
+use App\Youtube;
 
-class NoticeCommentController extends Controller
+class YoutubeCommentController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -34,23 +34,23 @@ class NoticeCommentController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, Notice $notice)
+    public function store(Request $request, Youtube $youtube)
     {
         $user = $request->user();
 
-        $user->noticeComments()->create(array_merge(
+        $user->youtubeComments()->create(array_merge(
             $request->all(),
-            ['notice_id' => $notice->id]
+            ['youtube_id' => $youtube->id]
         ));
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\NoticeComment  $noticeComment
+     * @param  \App\YoutubeComment  $youtubeComment
      * @return \Illuminate\Http\Response
      */
-    public function show(NoticeComment $noticeComment)
+    public function show(YoutubeComment $youtubeComment)
     {
         //
     }
@@ -58,10 +58,10 @@ class NoticeCommentController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\NoticeComment  $noticeComment
+     * @param  \App\YoutubeComment  $youtubeComment
      * @return \Illuminate\Http\Response
      */
-    public function edit(NoticeComment $noticeComment)
+    public function edit(YoutubeComment $youtubeComment)
     {
         //
     }
@@ -70,10 +70,10 @@ class NoticeCommentController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\NoticeComment  $noticeComment
+     * @param  \App\YoutubeComment  $youtubeComment
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, NoticeComment $noticeComment)
+    public function update(Request $request, YoutubeComment $youtubeComment)
     {
         //
     }
@@ -81,11 +81,11 @@ class NoticeCommentController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\NoticeComment  $noticeComment
+     * @param  \App\YoutubeComment  $youtubeComment
      * @return \Illuminate\Http\Response
      */
-    public function destroy(NoticeComment $noticeComment)
+    public function destroy(YoutubeComment $youtubeComment)
     {
-        $noticeComment->delete();
+        //
     }
 }

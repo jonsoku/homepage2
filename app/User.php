@@ -8,6 +8,8 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 
 use App\Notice;
 use App\NoticeComment;
+use App\Youtube;
+use App\YoutubeComment;
 
 class User extends Authenticatable
 {
@@ -30,6 +32,14 @@ class User extends Authenticatable
     }
     public function noticeComments(){
         return $this->hasMany(NoticeComment::class);
+    }
+
+    public function youtubes(){
+        return $this->hasMany(Youtube::class);
+    }
+
+    public function youtubeComments(){
+        return $this->hasMany(YoutubeComment::class);
     }
 
     //Helpers

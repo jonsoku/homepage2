@@ -19,3 +19,5 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('notices', 'NoticeController');
 Route::resource('notices.noticeComments', 'NoticeCommentController');
+Route::resource('youtubes', 'YoutubeController')->middleware('auth');
+Route::resource('youtubes.youtubeComments', 'YoutubeCommentController')->middleware('auth');

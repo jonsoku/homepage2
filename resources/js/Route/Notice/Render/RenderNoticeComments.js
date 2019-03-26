@@ -29,9 +29,8 @@ const Li = styled.li`
     }
 `;
 
-export default class RenderNoticeComments extends Component {
+class RenderNoticeComments extends Component {
     render() {
-        console.log(this.props)
         return (
         <div>
             {this.props.noticeComments.map((noticeComments, index) => (
@@ -39,7 +38,7 @@ export default class RenderNoticeComments extends Component {
                     <Li>
                         <span>{noticeComments.user.name}</span>
                         <small>{noticeComments.created_at}</small>
-                        {noticeComments.user.id === this.props.user.id ? <button>X</button> : ''}
+                        {noticeComments.user.id === this.props.id ? <button onClick={()=>this.props.onCommentDelete(noticeComments.id)}>X</button> : ''}
                     </Li>
                     <Li><p>{noticeComments.body}</p></Li>
                 </Ul>
@@ -48,3 +47,7 @@ export default class RenderNoticeComments extends Component {
         )
     }
 }
+RenderNoticeComments.defaultProps = {
+    id: 0
+};
+export default RenderNoticeComments;
