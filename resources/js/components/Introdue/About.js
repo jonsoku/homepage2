@@ -14,7 +14,7 @@ const Introduce = styled.div`
 `;
 
 const Grid = styled.div`
-    margin-top: 3rem;
+    margin-top: 8rem;
     display: grid;
     grid-template-columns: 10% 40% 40% 10%;
 `;
@@ -61,7 +61,7 @@ export default class about extends Component {
                         <Ul>
                             <Li>
                                 <small>Name</small>
-                                <span>KIMSCHHOL : 김스쿨</span>
+                                <span>KIMSCHOOL : 김스쿨</span>
                             </Li>
                             <Li>
                                 <small>Moto</small>

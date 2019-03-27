@@ -4,6 +4,8 @@ import Char from '../../components/Introdue/Char';
 import Subject from '../../components/Introdue/Subject';
 import Axios from 'axios';
 import SubjectCreateForm from '../../components/Introdue/SubjectCreateForm';
+import Student from '../../components/Introdue/Student';
+import With from '../../components/Introdue/With';
 
 export default class Introduce extends Component {
     constructor(props) {
@@ -33,6 +35,8 @@ export default class Introduce extends Component {
                 <About />
                 <Char />
                 <Subject subjects={this.state.subjects} userId={this.state.user && this.state.user.id} />
+                <Student />
+                <With />
             </div>
         );
     }
