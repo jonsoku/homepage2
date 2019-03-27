@@ -11,6 +11,8 @@ use App\NoticeComment;
 use App\Youtube;
 use App\YoutubeComment;
 use App\Subject;
+use App\Apply;
+use App\ApplySubject;
 
 class User extends Authenticatable
 {
@@ -45,6 +47,10 @@ class User extends Authenticatable
 
     public function subjects(){
         return $this->hasMany(Subject::class);
+    }
+
+    public function applies(){
+        return $this->hasMany(Apply::class);
     }
 
     //Helpers

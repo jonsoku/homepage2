@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { HashRouter as Router, Route, Redirect, Switch } from 'react-router-dom';
 import Home from '../Route/Home';
 import Notice from '../Route/Notice';
-import Post from '../Route/Post';
 import Youtube from '../Route/Youtube';
 import Header from './Header';
 import NoticeShow from '../Route/Notice/Show/NoticeShow';
@@ -12,6 +11,7 @@ import YoutubeCreate from '../Route/Youtube/Create/YoutubeCreate';
 import YoutubeShow from '../Route/Youtube/Show/YoutubeShow';
 import Introduce from '../Route/Introduce/Introduce';
 import SubjectsCreate from '../Route/Introduce/SubjectsCreate';
+import Apply from '../Route/Apply';
 
 export default () => (
     <Router>
@@ -26,7 +26,7 @@ export default () => (
                 <Route path="/notices/create" exact component={NoticeCreate} />
                 <Route path="/notices/:id" exact component={NoticeShow} />
                 <Route path="/notices/:id/edit" exact component={NoticeEdit} />
-                <Route path="/posts" exact component={Post} />
+                <Route path="/applies" exact component={Apply} />
                 <Route path="/youtubes" exact component={Youtube} />
                 <Route path="/youtubes/create" exact component={YoutubeCreate} />
                 <Route path="/youtubes/:id" exact component={YoutubeShow} />

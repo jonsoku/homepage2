@@ -22,3 +22,5 @@ Route::resource('subjects', 'SubjectController');
 Route::resource('notices.noticeComments', 'NoticeCommentController');
 Route::resource('youtubes', 'YoutubeController')->middleware('auth');
 Route::resource('youtubes.youtubeComments', 'YoutubeCommentController')->middleware('auth');
+Route::resource('applies', 'ApplyController');
+Route::resource('applySubjects', 'ApplySubjectController');
