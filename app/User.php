@@ -10,6 +10,7 @@ use App\Notice;
 use App\NoticeComment;
 use App\Youtube;
 use App\YoutubeComment;
+use App\Subject;
 
 class User extends Authenticatable
 {
@@ -40,6 +41,10 @@ class User extends Authenticatable
 
     public function youtubeComments(){
         return $this->hasMany(YoutubeComment::class);
+    }
+
+    public function subjects(){
+        return $this->hasMany(Subject::class);
     }
 
     //Helpers
